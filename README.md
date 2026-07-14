@@ -1,4 +1,5 @@
 # 크림슨우드 내비게이션
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/2376b9e6-6427-49f3-bda8-084b6fcca087" />
 
 ## 홈페이지
 

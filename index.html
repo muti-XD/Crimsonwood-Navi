@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#11151d">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="크림슨우드 지역의 최단 이동 경로를 빠르게 찾는 오프라인 지도 내비게이션">
+  <title>크림슨우드 내비게이션</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <header class="hero">
+    <div class="hero__brand">
+      <div>
+        <p class="eyebrow">PHANTOM ROUTE ARCHIVE</p>
+        <h1>크림슨우드 <em>내비게이션</em></h1>
+        <p class="hero__desc">복잡한 숲길도 가장 짧고 선명하게.</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="search-shell" aria-label="길찾기">
+      <div class="search-grid">
+        <label class="location-field">
+          <span class="field-label"><i class="dot dot--start"></i>출발지</span>
+          <div class="input-wrap">
+            <input id="start-input" autocomplete="off" placeholder="출발 지역을 선택하세요" role="combobox" aria-expanded="false" aria-controls="start-options">
+            <button class="clear-input" data-target="start-input" type="button" aria-label="출발지 지우기">×</button>
+            <div id="start-options" class="suggestion-list" role="listbox"></div>
+          </div>
+        </label>
+
+        <button id="swap-button" class="swap-button" type="button" aria-label="출발지와 도착지 바꾸기" title="출발지와 도착지 바꾸기">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h11l-3-3m3 3-3 3M17 17H6l3 3m-3-3 3-3"/></svg>
+        </button>
+
+        <label class="location-field">
+          <span class="field-label"><i class="dot dot--end"></i>도착지</span>
+          <div class="input-wrap">
+            <input id="end-input" autocomplete="off" placeholder="도착 지역을 선택하세요" role="combobox" aria-expanded="false" aria-controls="end-options">
+            <button class="clear-input" data-target="end-input" type="button" aria-label="도착지 지우기">×</button>
+            <div id="end-options" class="suggestion-list" role="listbox"></div>
+          </div>
+        </label>
+
+        <label class="toggle-option">
+          <input id="upper-toggle" type="checkbox">
+          <span class="toggle"><i></i></span>
+          <span>도착지를 반드시 상단 지형으로</span>
+        </label>
+
+        <button id="favorite-button" class="ghost-button favorite-add-button" type="button" aria-label="현재 경로 즐겨찾기" title="현재 경로 즐겨찾기">☆</button>
+
+      </div>
+
+    </section>
+
+    <section class="favorites-section" aria-labelledby="favorites-title">
+      <div class="section-heading compact">
+        <div><p class="eyebrow">QUICK ROUTES</p><h2 id="favorites-title">자주 가는 곳</h2></div>
+        <button id="clear-favorites" class="text-button" type="button">모두 지우기</button>
+      </div>
+      <div id="favorites" class="favorite-list"></div>
+    </section>
+
+    <section id="empty-state" class="empty-state">
+      <p class="eyebrow">READY TO NAVIGATE</p>
+      <h2>목적지를 정하면 길이 보입니다</h2>
+      <p>출발지와 도착지를 선택하면 이동 순서와 지도 이미지를 한눈에 확인할 수 있습니다.</p>
+    </section>
+
+    <section id="results-section" class="results-section" hidden aria-live="polite">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">SHORTEST ROUTE</p>
+          <h2 id="result-title">검색 결과</h2>
+          <p id="result-description" class="section-description"></p>
+        </div>
+      </div>
+      <div id="route-tabs" class="route-tabs" role="tablist"></div>
+      <div id="route-content"></div>
+    </section>
+  </main>
+
+  <footer><span>Crimsonwood Navi</span><span>모든 경로 계산은 기기 안에서 처리됩니다.</span></footer>
+
+  <dialog id="image-dialog" class="image-dialog">
+    <button id="dialog-close" type="button" aria-label="닫기">×</button>
+    <img id="dialog-image" alt="확대된 지도">
+    <p id="dialog-caption"></p>
+  </dialog>
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="data/maps.js"></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

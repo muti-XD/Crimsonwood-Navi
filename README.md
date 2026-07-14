@@ -2,13 +2,13 @@
 
 ## 홈페이지
 
-### [크림슨우드 내비게이션 바로가기](https://muti-xd.github.io/crimsonwood-navi-web/)
+### [크림슨우드 내비게이션 바로가기](https://muti-xd.github.io/Crimsonwood-Navi/)
 
 출발지와 도착지를 선택하면 최단 이동 경로와 지도를 즉시 확인할 수 있습니다.
 
 ## 사용 방법
 
-1. [홈페이지](https://muti-xd.github.io/crimsonwood-navi-web/)에 접속합니다.
+1. [홈페이지](https://muti-xd.github.io/Crimsonwood-Navi/)에 접속합니다.
 2. 출발지와 도착지를 선택합니다.
 3. 두 지점이 모두 선택되면 최단 경로가 자동으로 계산됩니다.
 
